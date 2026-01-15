@@ -1,9 +1,9 @@
 
 const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+const db = new PrismaClient()
 
 async function main() {
-    const superAdmin = await prisma.user.findFirst({
+    const superAdmin = await db.user.findFirst({
         where: { role: 'SUPER_ADMIN' }
     })
 
@@ -20,5 +20,5 @@ main()
         process.exit(1)
     })
     .finally(async () => {
-        await prisma.$disconnect()
+        await db.$disconnect()
     })

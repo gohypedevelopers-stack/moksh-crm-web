@@ -3,6 +3,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 /**
  * GET /api/super-admin/discount-requests
  * Get all discount requests with filters (Super Admin only)
@@ -100,31 +102,31 @@ export async function GET(req: Request) {
         });
 
         // Format response
-        const formattedRequests = discountRequests.map((req) => ({
-            id: req.id,
-            leadId: req.leadId,
-            leadName: req.lead.customerName,
-            leadPhone: req.lead.phone,
-            leadEmail: req.lead.email,
+        const formattedRequests = discountRequests.map((discountItem) => ({
+            id: discountItem.id,
+            leadId: discountItem.leadId,
+            leadName: discountItem.lead.customerName,
+            leadPhone: discountItem.lead.phone,
+            leadEmail: discountItem.lead.email,
             salesRep: {
-                id: req.requestedByUser.id,
-                name: req.requestedByUser.name,
-                email: req.requestedByUser.email,
+                id: discountItem.requestedByUser.id,
+                name: discountItem.requestedByUser.name,
+                email: discountItem.requestedByUser.email,
             },
-            requestedPercent: req.requestedPercent,
-            approvedPercent: req.approvedPercent,
-            baseTotal: Number(req.lead.baseTotal),
-            finalTotal: req.approvedPercent
-                ? Number(req.lead.baseTotal) * (1 - req.approvedPercent / 100)
-                : Number(req.lead.baseTotal) * (1 - req.requestedPercent / 100),
-            reason: req.reason,
-            rejectionReason: req.rejectionReason,
-            status: req.status,
-            campaignCount: req.lead.campaignItems.length,
-            requestedAt: req.requestedAt,
-            approvedAt: req.approvedAt,
-            createdAt: req.createdAt,
-            updatedAt: req.updatedAt,
+            requestedPercent: discountItem.requestedPercent,
+            approvedPercent: discountItem.approvedPercent,
+            baseTotal: Number(discountItem.lead.baseTotal),
+            finalTotal: discountItem.approvedPercent
+                ? Number(discountItem.lead.baseTotal) * (1 - discountItem.approvedPercent / 100)
+                : Number(discountItem.lead.baseTotal) * (1 - discountItem.requestedPercent / 100),
+            reason: discountItem.reason,
+            rejectionReason: discountItem.rejectionReason,
+            status: discountItem.status,
+            campaignCount: discountItem.lead.campaignItems.length,
+            requestedAt: discountItem.requestedAt,
+            approvedAt: discountItem.approvedAt,
+            createdAt: discountItem.createdAt,
+            updatedAt: discountItem.updatedAt,
         }));
 
         return NextResponse.json({
