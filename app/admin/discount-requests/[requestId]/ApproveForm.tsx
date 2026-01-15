@@ -126,7 +126,7 @@ export default function ApproveForm({ request, requestId }: Props) {
                                             type="number"
                                             className="border-0 focus-visible:ring-0"
                                             value={approvedPercent}
-                                            onChange={(e) => setApprovedPercent(e.target.value)}
+                                            onChange={(e) => setApprovedPercent(Number(e.target.value))}
                                             max={request.requestedPercent}
                                         />
                                         <div className="bg-gray-100 flex items-center px-4 font-bold text-gray-500">%</div>
