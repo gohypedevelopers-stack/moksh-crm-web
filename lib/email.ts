@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
     },
 })
 
-export async function sendEmail({ to, subject, html }: { to: string; subject: string; html: string }) {
+export async function sendEmail({ to, subject, html, replyTo }: { to: string; subject: string; html: string; replyTo?: string }) {
     // Audit or log email attempt
     console.log(`Attempting to send email to ${to}`)
 
@@ -23,6 +23,7 @@ export async function sendEmail({ to, subject, html }: { to: string; subject: st
         const info = await transporter.sendMail({
             from: process.env.SMTP_FROM || '"Moksh CRM" <no-reply@mokshpromotion.com>',
             to,
+            replyTo,
             subject,
             html,
         })

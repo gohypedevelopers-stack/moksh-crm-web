@@ -33,7 +33,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
             discountValue: Number(plan.discountValue),
             discountAmount: Number(plan.discountAmount),
             finalTotal: Number(plan.finalTotal),
-            senderName: plan.createdBy.name,
+            senderName: plan.createdBy?.name || "Moksh Promotion",
             notes: plan.notes || undefined
         })
 
@@ -42,7 +42,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
             to: plan.clientEmail,
             subject,
             html,
-            replyTo: plan.createdBy.email
+            replyTo: plan.createdBy?.email || undefined
         })
 
         if (!sent) {
