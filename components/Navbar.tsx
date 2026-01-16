@@ -36,7 +36,7 @@ export default function Navbar() {
             name: "SERVICES",
             path: "/services",
             children: [
-                { name: "FUEL STATION MEDIA", path: "/services/fuel-station-media", separator: true },
+                { name: "FUEL STATION MEDIA", path: "/petrolpump-media", separator: true },
                 { name: "BTL/ATL", path: "/services/btl-atl" },
                 { name: "DISPLAY SPACE", path: "/services/display-space" },
                 { name: "BRANDINGS", path: "/services/brandings" },
@@ -44,6 +44,15 @@ export default function Navbar() {
         },
         { name: "CASE STUDY", path: "/case-study" },
         { name: "BLOG", path: "/blog" },
+        {
+            name: "MORE",
+            path: "#",
+            children: [
+                { name: "GALLERY", path: "/gallery" },
+                { name: "ABOUT US", path: "/about" },
+                { name: "CONTACT", path: "/contact" },
+            ]
+        },
     ];
 
     return (

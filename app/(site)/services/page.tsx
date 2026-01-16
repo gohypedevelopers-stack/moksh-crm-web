@@ -1,56 +1,45 @@
 import CartFooter from "@/components/CartFooter"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 
 export default function ServicesPage() {
     const services = [
         {
-            title: "Fuel Station Media",
-            description: "High-visibility advertising at premium fuel stations across the region.",
-            link: "/petrolpump-media"
+            title: "Fuel Stations Media",
+            description: "Maximize your brand's presence with OOH media at fuel stations. Capture attention in high-traffic zones and connect with target audiences through strategically placed, high-visibility branding that drives lasting recall.",
         },
         {
             title: "BTL / ATL",
-            description: "Integrated marketing strategies combining broad reach and targeted engagement.",
-            link: "/services/btl-atl"
+            description: "Implement product sampling campaigns designed to engage the right audience. Allowing vehicle owners to experience your service firsthand helps establish your brand in a memorable and impactful way.",
         },
         {
             title: "Display Space",
-            description: "Prime locations for static and digital displays to capture attention.",
-            link: "/services/display-space"
+            description: "Boost your product's visibility with our premium showroom-like setups at HPCL petrol pumps. Engage customers with live product displays and interactive sampling/activation opportunities.",
         },
         {
-            title: "Brandings",
-            description: "Creative branding solutions to elevate your corporate identity.",
-            link: "/services/brandings"
+            title: "Standee / Pillar Branding",
+            description: "Enhance brand visibility with standee displays and pillar branding. Utilize strategic placement and small stickers at fuel stations to capture attention and promote your product effectively.",
         }
     ]
 
     return (
         <main className="min-h-screen bg-[#032D52] py-20 pb-24 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-                <h1 className="text-4xl font-bold mb-4">Our Services</h1>
-                <p className="text-xl text-gray-300 mb-12 max-w-3xl">
-                    Discover our wide range of promotional and media solutions designed to help your business grow.
-                </p>
+                <h1 className="text-4xl md:text-5xl font-bold mb-16 text-center">
+                    WHAT SERVICES WE OFFER
+                </h1>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     {services.map((service) => (
-                        <Link
+                        <div
                             key={service.title}
-                            href={service.link}
-                            className="bg-[#002147] p-8 rounded-xl border border-white/10 hover:border-white/30 hover:bg-[#002a5c] transition-all group"
+                            className="bg-transparent p-8 rounded-lg border-2 border-white/80 hover:border-white hover:bg-white/5 transition-all"
                         >
-                            <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-300 transition-colors">
+                            <h2 className="text-xl font-bold mb-6 text-center">
                                 {service.title}
                             </h2>
-                            <p className="text-gray-400 mb-6">
+                            <p className="text-white/90 text-center leading-relaxed">
                                 {service.description}
                             </p>
-                            <span className="flex items-center gap-2 text-sm font-medium text-blue-400 group-hover:text-blue-300">
-                                Learn More <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                            </span>
-                        </Link>
+                        </div>
                     ))}
                 </div>
             </div>
