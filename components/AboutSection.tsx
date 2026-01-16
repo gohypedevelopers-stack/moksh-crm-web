@@ -13,15 +13,15 @@ export default function AboutSection() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                     {/* Left Image Area */}
-                    <div className="flex-1 w-full order-2 lg:order-1 relative flex justify-center lg:justify-end pr-0 lg:pr-8">
+                    <div className="flex-1 w-full order-2 lg:order-1 relative flex justify-center pr-0 lg:pr-8">
                         <div className="relative w-full max-w-lg">
                             {/* Main Image */}
-                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border-[8px] border-white z-10 bg-white">
+                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl z-10 bg-white group">
                                 <Image
                                     src="/images/petrol-pump-demo.png"
                                     alt="Moksh Promotions Office"
                                     fill
-                                    className="object-cover hover:scale-110 transition-transform duration-1000"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
                                 />
                             </div>
 
